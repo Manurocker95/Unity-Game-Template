@@ -1,0 +1,1 @@
+"D:/Inno Setup 5/ISCC.exe" "D:/Unity/Mis Proyectos/UnityGameTemplate/Unity-Game-Template/Executable/installer.iss"
