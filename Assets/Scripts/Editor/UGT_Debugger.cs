@@ -7,7 +7,7 @@ using System.IO;
 using System.Diagnostics;
 using UnityGameTemplate.Serialization;
 
-namespace UnityGameTemplate
+namespace UnityGameTemplate.Debug
 {
     public enum DEBUG_TABS
     {
