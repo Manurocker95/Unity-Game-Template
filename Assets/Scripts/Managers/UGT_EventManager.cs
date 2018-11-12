@@ -36,8 +36,7 @@ namespace UnityGameTemplate
         /// <summary>
         /// Event dictionary
         /// </summary>
-        private Dictionary<string, UnityEvent> eventDictionary;
-        private Dictionary<string, object> eventDictionary2;
+        private Dictionary<string, object> eventDictionary;
 
         protected override void Awake()
         {
@@ -49,8 +48,7 @@ namespace UnityGameTemplate
         /// </summary>
         void Init()
         {
-            eventDictionary = new Dictionary<string, UnityEvent>();
-            eventDictionary2 = new Dictionary<string, object>();
+            eventDictionary = new Dictionary<string, object>();
 
         }
         /// <summary>
@@ -64,8 +62,10 @@ namespace UnityGameTemplate
                 return;
 
             UnityEvent thisEvent = null;
-            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            object thisEventObject = null;
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
+                thisEvent = thisEventObject as UnityEvent;
                 thisEvent.AddListener(listener);
             }
             else
@@ -86,8 +86,10 @@ namespace UnityGameTemplate
                 return;
 
             UnityEvent thisEvent = null;
-            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            object thisEventObject = null;
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
+                thisEvent = thisEventObject as UnityEvent;
                 thisEvent.RemoveListener(listener);
             }
         }
@@ -101,8 +103,10 @@ namespace UnityGameTemplate
                 return;
 
             UnityEvent thisEvent = null;
-            if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+            object thisEventObject = null;
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
+                thisEvent = thisEventObject as UnityEvent;
                 thisEvent.Invoke();
             }
         }
@@ -115,7 +119,7 @@ namespace UnityGameTemplate
             CustomEvent<T> thisEvent = null;
             object thisEventObject = null;
 
-            if (Instance.eventDictionary2.TryGetValue(eventName, out thisEventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
                 thisEvent = thisEventObject as CustomEvent<T>;
                 thisEvent.AddListener(listener);
@@ -124,7 +128,7 @@ namespace UnityGameTemplate
             {
                 thisEvent = new CustomEvent<T>();
                 thisEvent.AddListener(listener);
-                Instance.eventDictionary2.Add(eventName, thisEvent);
+                Instance.eventDictionary.Add(eventName, thisEvent);
             }
         }
 
@@ -136,7 +140,7 @@ namespace UnityGameTemplate
             CustomEvent<T> thisEvent = null;
             object thisEventObject = null;
 
-            if (Instance.eventDictionary2.TryGetValue(eventName, out thisEventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
                 thisEvent = thisEventObject as CustomEvent<T>;
                 thisEvent.RemoveListener(listener);
@@ -149,7 +153,7 @@ namespace UnityGameTemplate
                 return;
 
             object eventObject = null;
-            if (Instance.eventDictionary2.TryGetValue(eventName, out eventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out eventObject))
             {
                 CustomEvent<T> thisEvent = eventObject as CustomEvent<T>;
                 if (thisEvent!=null)
@@ -165,7 +169,7 @@ namespace UnityGameTemplate
             CustomEvent<T0, T1> thisEvent = null;
             object thisEventObject = null;
 
-            if (Instance.eventDictionary2.TryGetValue(eventName, out thisEventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
                 thisEvent = thisEventObject as CustomEvent<T0, T1>;
                 if (thisEvent == null)
@@ -173,7 +177,7 @@ namespace UnityGameTemplate
                     thisEvent = new CustomEvent<T0, T1>();
                     thisEvent.AddListener(listener);
 
-                    Instance.eventDictionary2[eventName] = thisEvent;
+                    Instance.eventDictionary[eventName] = thisEvent;
                 }
                 else
                 {
@@ -184,7 +188,7 @@ namespace UnityGameTemplate
             {
                 thisEvent = new CustomEvent<T0, T1>();
                 thisEvent.AddListener(listener);
-                Instance.eventDictionary2.Add(eventName, thisEvent);
+                Instance.eventDictionary.Add(eventName, thisEvent);
             }
         }
 
@@ -196,7 +200,7 @@ namespace UnityGameTemplate
             CustomEvent<T0, T1> thisEvent = null;
             object thisEventObject = null;
 
-            if (Instance.eventDictionary2.TryGetValue(eventName, out thisEventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out thisEventObject))
             {
                 thisEvent = thisEventObject as CustomEvent<T0, T1>;
                 thisEvent.RemoveListener(listener);
@@ -209,7 +213,7 @@ namespace UnityGameTemplate
                 return;
 
             object eventObject = null;
-            if (Instance.eventDictionary2.TryGetValue(eventName, out eventObject))
+            if (Instance.eventDictionary.TryGetValue(eventName, out eventObject))
             {
                 CustomEvent<T0, T1> thisEvent = eventObject as CustomEvent<T0, T1>;
                 thisEvent.Invoke(value0, value1);

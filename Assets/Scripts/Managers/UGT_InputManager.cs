@@ -131,6 +131,11 @@ namespace UnityGameTemplate
             return Input.GetKey(kc);
         }
 
+        public static bool IsKeyCodePressedDown(KeyCode kc)
+        {
+            return Input.GetKeyDown(kc);
+        }
+
         /// <summary>
         /// We just set a confirm keys but any keys can be set
         /// </summary>

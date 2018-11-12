@@ -16,7 +16,7 @@ namespace UnityGameTemplate.Example
         // Update is called once per frame
         protected override void Update()
         {
-            if (UGT_InputManager.IsKeyCodePressed(KeyCode.I))
+            if (UGT_InputManager.IsKeyCodePressedDown(KeyCode.I))
             {
                 UGT_InventoryManager.Instance.AddItem(new UGT_Item());
             }
