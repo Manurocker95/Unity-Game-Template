@@ -110,4 +110,12 @@
     <Key>ConfirmPressedText</Key>
     <Text>El input Confirmar está presionado.</Text>
   </Table1>
+  <Table1>
+    <Key>Test</Key>
+    <Text>Prueba</Text>
+  </Table1>
+  <Table1>
+    <Key>TestDesc</Key>
+    <Text>Descripción de prueba</Text>
+  </Table1>
 </NewDataSet>

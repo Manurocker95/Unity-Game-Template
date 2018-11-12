@@ -102,4 +102,20 @@
     <Key>backToMenuText</Key>
     <Text>Back To Menu</Text>
   </Table1>
+  <Table1>
+    <Key>ConfirmNotPressedText</Key>
+    <Text>The confirm input is not pressed.</Text>
+  </Table1>
+  <Table1>
+    <Key>ConfirmPressedText</Key>
+    <Text>The confirm input is pressed.</Text>
+  </Table1>
+  <Table1>
+    <Key>Test</Key>
+    <Text>Test.</Text>
+  </Table1>
+  <Table1>
+    <Key>TestDesc</Key>
+    <Text>Test Description.</Text>
+  </Table1>
 </NewDataSet>

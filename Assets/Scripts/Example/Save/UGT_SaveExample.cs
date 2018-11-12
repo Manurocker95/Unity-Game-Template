@@ -5,9 +5,8 @@ using UnityGameTemplate.Inventory;
 
 namespace UnityGameTemplate
 {
-    public class UGT_SaveExample : MonoBehaviour
+    public class UGT_SaveExample : UGT_Example
     {
-
         // Use this for initialization
         void Start()
         {
@@ -15,7 +14,7 @@ namespace UnityGameTemplate
         }
 
         // Update is called once per frame
-        void Update()
+        protected override void Update()
         {
             if (UGT_InputManager.IsKeyCodePressed(KeyCode.I))
             {
@@ -31,7 +30,11 @@ namespace UnityGameTemplate
             {
                 UGT_SaveManager.Instance.LoadGame();
             }
+
+            base.Update();
         }
+
+
     }
 
 }
