@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameTemplate.Inventory;
 
-namespace UnityGameTemplate
+namespace UnityGameTemplate.Example
 {
     public class UGT_SaveExample : UGT_Example
     {

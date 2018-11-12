@@ -152,7 +152,8 @@ namespace UnityGameTemplate
             if (Instance.eventDictionary2.TryGetValue(eventName, out eventObject))
             {
                 CustomEvent<T> thisEvent = eventObject as CustomEvent<T>;
-                thisEvent.Invoke(value);
+                if (thisEvent!=null)
+                    thisEvent.Invoke(value);
             }
         }
 

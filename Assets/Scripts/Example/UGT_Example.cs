@@ -1,9 +1,19 @@
-﻿using System.Collections;
+﻿/*===============================================================*
+ *                                                               *
+ *       Script made by Manuel Rodríguez Matesanz                *
+ *          Free to use if credits are given                     *
+ *                                                               *
+ *===============================================================*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace UnityGameTemplate
+namespace UnityGameTemplate.Example
 {
+    /// <summary>
+    /// Base class for simple example scripts
+    /// </summary>
     public class UGT_Example : MonoBehaviour
     {
         [Header("Configuration"), Space(10)]
@@ -19,7 +29,9 @@ namespace UnityGameTemplate
                 BackToMenu();
 
         }
-
+        /// <summary>
+        /// We go to menu from each example when pressing Escape - 
+        /// </summary>
         protected virtual void BackToMenu()
         {
             if (m_usingEvents)

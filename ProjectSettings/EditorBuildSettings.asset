@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Examples/Input_Example.unity
     guid: c6567a378a19ff74d8cd8ffef7557328
+  - enabled: 1
+    path: Assets/Scenes/Examples/Event_Example.unity
+    guid: babdf064e6b180d4a93b882919cff3a1
+  - enabled: 1
+    path: Assets/Scenes/Examples/Dialog_Example.unity
+    guid: 083fd940ea3b73c44b549954ba443659
   m_configObjects: {}

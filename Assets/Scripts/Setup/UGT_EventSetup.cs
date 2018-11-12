@@ -14,9 +14,17 @@ namespace UnityGameTemplate
             public const string TRANSLATE_TEXTS = "TranslateTextsEvent";
         }
 
+        public static class Example
+        {
+            public const string EXAMPLE_EVENT = "ExampleEvent";
+            public const string EXAMPLE_EVENT_2 = "Example2Event";
+            public const string EXAMPLE_EVENT_3 = "Example3Event";
+        }
+
         public static class Scene
         {
             public const string LOAD_SCENE = "LoadSceneEvent";
+            public const string LOAD_SCENE_WITH_EVENT = "LoadSceneWithEventEvent";
         }
 
         public static class Menu

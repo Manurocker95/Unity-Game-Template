@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityGameTemplate.Localization;
 
-namespace UnityGameTemplate
+namespace UnityGameTemplate.Example
 {
     /// <summary>
     /// Custom script used in Test Input Scene

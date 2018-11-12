@@ -1,9 +1,19 @@
-﻿using System.Collections;
+﻿/*===============================================================*
+ *                                                               *
+ *       Script made by Manuel Rodríguez Matesanz                *
+ *          Free to use if credits are given                     *
+ *                                                               *
+ *===============================================================*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace UnityGameTemplate
 {
+    /// <summary>
+    /// Menu Class. Goes to each example scene
+    /// </summary>
     public class UGT_Menu : MonoBehaviour
     {
         [SerializeField] private bool m_loadByEvent = true;
@@ -14,17 +24,18 @@ namespace UnityGameTemplate
 
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
+        /// <summary>
+        /// Exit event - As I want to show how to use events, lets use one instead of simply Application.Quit();
+        /// </summary>
         public void ExitGame()
         {
             UGT_EventManager.TriggerEvent(UGT_EventSetup.Menu.EXIT);
         }
 
+        /// <summary>
+        /// Same with load scene ;)
+        /// </summary>
+        /// <param name="_scene"></param>
         public void LoadScene(int _scene)
         {
             if (m_loadByEvent)

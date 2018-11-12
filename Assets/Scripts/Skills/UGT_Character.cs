@@ -1,4 +1,10 @@
-﻿
+﻿/*===============================================================*
+ *                                                               *
+ *       Script made by Manuel Rodríguez Matesanz                *
+ *          Free to use if credits are given                     *
+ *                                                               *
+ *===============================================================*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

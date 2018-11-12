@@ -58,7 +58,7 @@ namespace UnityGameTemplate
         private void StartAllListeners()
         {
             UGT_EventManager.StartListening<int>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneWithIndex);
-            UGT_EventManager.StartListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneAndEvent);
+            UGT_EventManager.StartListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE_WITH_EVENT, LoadSceneAndEvent);
         }
         /// <summary>
         /// Stop Listening to events
@@ -66,14 +66,18 @@ namespace UnityGameTemplate
         private void StopAllListeners()
         {
             UGT_EventManager.StopListening<int>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneWithIndex);
-            UGT_EventManager.StopListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneAndEvent);
+            UGT_EventManager.StopListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE_WITH_EVENT, LoadSceneAndEvent);
         }
-
+        /// <summary>
+        /// Hide Loading panel
+        /// </summary>
         private void _HidePanel()
         {
             m_loadingScreenGroup.SetActive(false);
         }
-
+        /// <summary>
+        /// method to force the panel hiding
+        /// </summary>
         public static void HidePanel()
         {
             Instance._HidePanel();
@@ -124,22 +128,37 @@ namespace UnityGameTemplate
                 UGT_EventManager.TriggerEvent(_eventName);
             }
         }
-
+        /// <summary>
+        /// Method called from event
+        /// </summary>
+        /// <param name="_index"></param>
         public void LoadSceneWithIndex(int _index)
         {
             LoadSceneAsync(_index);
         }
-
+        /// <summary>
+        /// Called from Event
+        /// </summary>
+        /// <param name="_index"></param>
+        /// <param name="_eventName"></param>
         public void LoadSceneAndEvent(int _index, string _eventName)
         {
             LoadSceneAsync(_index, 1f, _eventName);
         }
-
+        /// <summary>
+        /// UGT_SceneManager.LoadScene 
+        /// </summary>
+        /// <param name="_sceneIndex"></param>
+        /// <param name="_delayAfterLoading"></param>
+        /// <param name="_eventName"></param>
         public static void LoadScene(int _sceneIndex, float _delayAfterLoading = 1f, string _eventName = "")
         {
             Instance.LoadSceneAsync(_sceneIndex, _delayAfterLoading, _eventName);
         }
-
+        /// <summary>
+        /// Can we save in the current scene?
+        /// </summary>
+        /// <returns></returns>
         public bool CanSave()
         {
             if (m_canSaveScenes == null)

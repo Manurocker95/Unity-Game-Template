@@ -2,7 +2,7 @@
 <NewDataSet>
   <Language>Spanish</Language>
   <Table1>
-    <Key>loadingText</Key>
+    <Key>LoadingText</Key>
     <Text>Cargando...</Text>
   </Table1>
   <Table1>
