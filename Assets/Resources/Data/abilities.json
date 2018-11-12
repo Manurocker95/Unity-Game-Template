@@ -1,0 +1,220 @@
+{
+  "skilltree": [
+    {
+      "ID": "BasicArt",
+      "Description": "A small ability to draw and paint by hand",
+      "Name": "Basic Art",
+      "Target": "AllEnemies",
+      "Type": "Special",
+      "Damage": 100,
+      "Restore": 0,
+      "Status_effect": "none",
+	  "Status_Probability":0,
+      "Magic": "Art",
+      "LevelToUnlock": 1,
+      "Evolutions": [
+        {
+          "ID": "TraditionalArt",
+          "Description": "Ability to paint with margarine. Can paralyze foes.",
+          "Name": "Traditional Art",
+          "Target": "AllEnemies",
+          "Type": "Special",
+          "Damage": 200,
+          "Restore": 0,
+          "Status_effect": "Paralyze",
+		  "Status_Probability":30,
+          "Magic": "Art",
+          "LevelToUnlock": 3,
+          "Evolutions": []
+        },
+        {
+          "ID": "DigitalArt",
+          "Description": "Powerful art in Photoshop. Restores 100HP because of the grand pleasure.",
+          "Name": "Digital Art",
+          "Target": "OneEnemy",
+          "Type": "Physical",
+          "Damage": 500,
+          "Restore": 100,
+          "Status_effect": "none",
+		  "Status_Probability":0,
+          "Magic": "Art",
+          "LevelToUnlock": 5,
+          "Evolutions": []
+        }
+      ]
+    },
+    {
+      "ID": "BasicProgramming",
+      "Description": "Basic Programming Skills",
+      "Name": "Basic Programming Skills",
+      "Target": "OneEnemy",
+      "Type": "Physical",
+      "Damage": 20,
+      "Restore": 0,
+      "Magic": "Coding",
+      "Status_effect": "none",
+	  "Status_Probability":0,
+      "LevelToUnlock": 1,
+      "Evolutions": [
+        {
+          "ID": "Ruby",
+          "Description": "Language learnt using RPG Maker XP.",
+          "Name": "Ruby",
+          "Target": "OneEnemy",
+          "Type": "Special",
+          "Damage": 100,
+          "Restore": 0,
+          "Status_effect": "none",
+		  "Status_Probability":0,
+          "Magic": "Coding",
+          "LevelToUnlock": 2,
+          "Evolutions": []
+        },
+		{
+          "ID": "C",
+          "Description": "C skills learnt during the degree. Can freeze.",
+          "Name": "C",
+          "Target": "OneEnemy",
+          "Type": "Physical",
+          "Damage": 50,
+          "Restore": 0,
+          "Status_effect": "Freeze",
+		  "Status_Probability":10,
+          "Magic": "Coding",
+          "LevelToUnlock": 2,
+          "Evolutions": [
+			  {
+				  "ID": "CPlusPlus",
+				  "Description": "Powerful language to make Mobile device and computer apps.",
+				  "Name": "C++",
+				  "Target": "OneEnemy",
+				  "Type": "Special",
+				  "Damage": 200,
+				  "Restore": 0,
+				  "Status_effect": "none",
+				  "Status_Probability":0,
+				  "Magic": "Coding",
+				  "LevelToUnlock": 5,
+				  "Evolutions": [
+				  	{
+						  "ID": "Unreal",
+						  "Description": "C++ for Unreal Engine.",
+						  "Name": "Unreal Shot",
+						  "Target": "OneEnemy",
+						  "Type": "Special",
+						  "Damage": 200,
+						  "Restore": 0,
+						  "Status_effect": "none",
+						  "Status_Probability":0,
+						  "Magic": "Coding",
+						  "LevelToUnlock": 7,
+						  "Evolutions": []
+					},
+				  	{
+						  "ID": "Homebrew",
+						  "Description": "Low level coding for creating homebrews",
+						  "Name": "Homebrew Creation in C++",
+						  "Target": "OneEnemy",
+						  "Type": "Special",
+						  "Damage": 300,
+						  "Restore": 0,
+						  "Status_effect": "none",
+						  "Status_Probability":0,
+						  "Magic": "Coding",
+						  "LevelToUnlock": 7,
+						  "Evolutions": []
+					},
+					{
+						  "ID": "openGL",
+						  "Description": "Using C++ with OpenGL for creating Graphics",
+						  "Name": "C++ with OpenGL and GLSL to create graphic samples. Always Paralyze.",
+						  "Target": "AllEnemies",
+						  "Type": "Status",
+						  "Damage": 0,
+						  "Restore": 0,
+						  "Status_effect": "paralyze",
+						  "Status_Probability":100,
+						  "Magic": "Coding",
+						  "LevelToUnlock": 6,
+						  "Evolutions": [
+							{
+							  "ID": "Renderer",
+							  "Description": "3D renderer and Shaders with C++, OpenGL and GLSL",
+							  "Name": "3D renderer",
+							  "Target": "OneEnemy",
+							  "Type": "Special",
+							  "Damage": 500,
+							  "Restore": 0,
+							  "Status_effect": "none",
+							  "Status_Probability":0,
+							  "Magic": "Coding",
+							  "LevelToUnlock": 8,
+							  "Evolutions": []
+							},
+							{
+							  "ID": "GameEngine",
+							  "Description": "A simple game engine in C++. Restores 10HP. Can Paralyze.",
+							  "Name": "Evolution Engine",
+							  "Target": "OneEnemy",
+							  "Type": "Special",
+							  "Damage": 500,
+							  "Restore": 10,
+							  "Status_effect": "Paralyze",
+							  "Status_Probability":50,
+							  "Magic": "Coding",
+							  "LevelToUnlock": 10,
+							  "Evolutions": []
+							},
+							{
+							  "ID": "RayTracer",
+							  "Description": "CPU-Based Raytracer in C++ with cool BDRF. Restores 100HP. 70% Paralyze.",
+							  "Name": "Ray-Tracer",
+							  "Target": "AllEnemies",
+							  "Type": "Special",
+							  "Damage": 1000,
+							  "Restore": 100,
+							  "Status_effect": "Paralyze",
+							  "Status_Probability":70,
+							  "Magic": "Coding",
+							  "LevelToUnlock": 12,
+							  "Evolutions": []
+							}
+						]
+					}
+				  ]
+				},
+				{
+					"ID": "CSharp",
+					"Description": "Basic C# Skills. Restores 10HP.",
+					"Name": "C#",
+					"Target": "AllEnemies",
+					"Type": "Special",
+					"Damage": 200,
+					"Restore": 10,
+					"Status_effect": "None",
+					"Status_Probability":50,
+					"Magic": "Coding",
+					"LevelToUnlock": 5,
+					"Evolutions": [
+						{
+							"ID": "CSharpForUnity",
+							"Description": "Powerful skills in Unity with C#. Restores 100. Always Paralyze.",
+							"Name": "C# For Unity",
+							"Target": "AllEnemies",
+							"Type": "Special",
+							"Damage": 1000,
+							"Restore": 100,
+							"Status_effect": "Paralyze",
+							"Status_Probability":100,
+							"Magic": "Coding",
+							"LevelToUnlock": 12,
+							"Evolutions": []
+						}
+					]
+				}
+		  ]
+        }
+      ]
+    }
+  ]
+}

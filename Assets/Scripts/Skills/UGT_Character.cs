@@ -28,6 +28,14 @@ namespace UnityGameTemplate
         /// </summary>
         [SerializeField] protected Animator m_animator;
         /// <summary>
+        /// Mode
+        /// </summary>
+        [SerializeField] protected bool m_3DMode = false;
+        /// <summary>
+        /// Vector for raycasting
+        /// </summary>
+        [SerializeField] protected Vector3 m_detectionVector;
+        /// <summary>
         /// Distance the raycast is set
         /// </summary>
         [SerializeField] protected float m_detectionDistance = 1f;
@@ -55,11 +63,13 @@ namespace UnityGameTemplate
 
             if (!m_animator)
                 m_animator = GetComponent<Animator>();
+
         }
 
         protected virtual void FixedUpdate()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, -transform.right, m_detectionDistance, m_detectionLayers);
+            m_detectionVector =  (m_3DMode) ? transform.forward : -transform.right;
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, m_detectionVector, m_detectionDistance, m_detectionLayers);
             Debug.DrawLine(transform.position, -transform.right * m_detectionDistance, Color.red);
 
             if (hit.collider != null)

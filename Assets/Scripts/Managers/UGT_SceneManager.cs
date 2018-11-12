@@ -19,7 +19,7 @@ namespace UnityGameTemplate
     /// To change the scene just call: 
     /// UGT_SceneManager.LoadScene(index, delayAfterLoading, Event);
     /// </summary>
-    
+
     public class UGT_SceneManager : UGT_SingletonMonobehaviour<UGT_SceneManager>
     {
         /// <summary>
@@ -35,9 +35,9 @@ namespace UnityGameTemplate
         /// </summary>
         [SerializeField] Animator m_loadingAnimator;
         /// <summary>
-        /// List of scenes where the game can be saved
+        /// List of scenes where the game can be saved - In this template just Scene 2
         /// </summary>
-        [SerializeField] List<int> m_canSaveScenes;
+        [SerializeField] List<int> m_canSaveScenes = new List<int>(new int [1]{2});
 
         // Use this for initialization
         void Start()

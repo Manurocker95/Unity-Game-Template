@@ -94,7 +94,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4268573802244034
 Transform:
   m_ObjectHideFlags: 1
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_loadingScreenGroup: {fileID: 1886814530983472}
   m_loadingText: {fileID: 114213104504626540}
   m_loadingAnimator: {fileID: 95058548161559048}
+  m_canSaveScenes: 02000000
 --- !u!114 &114213104504626540
 MonoBehaviour:
   m_ObjectHideFlags: 1

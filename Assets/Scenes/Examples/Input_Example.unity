@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_inputExampleText: {fileID: 1793049147}
+  m_usingEvents: 1
 --- !u!1 &386538091
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1214676429574266, guid: 27f410a5f4ffb5d41856058f4fc02e8a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27f410a5f4ffb5d41856058f4fc02e8a, type: 2}
@@ -626,3 +627,25 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1793049145}
   m_CullTransparentMesh: 0
+--- !u!1 &1973344801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1214676429574266, guid: 27f410a5f4ffb5d41856058f4fc02e8a,
+    type: 2}
+  m_PrefabInternal: {fileID: 503623354}
+--- !u!114 &1973344802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1973344801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1742909100, guid: ed7343f30e3843b3afda8f8b02669cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Device: 0
+  m_PoseSource: 0
+  m_PoseProviderComponent: {fileID: 0}
+  m_TrackingType: 0
+  m_UpdateType: 0
+  m_UseRelativeTransform: 1
