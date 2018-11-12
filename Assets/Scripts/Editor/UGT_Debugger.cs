@@ -291,12 +291,12 @@ namespace UnityGameTemplate.Debug
 
         #region BUILD AND INSTALLER
 
-        private string BuildGame(bool runIt = false)
+        private string BuildGame(bool runIt = false, string _path="")
         {
             UnityEngine.Debug.ClearDeveloperConsole();
 
             // Get filename.
-            string path = EditorUtility.SaveFolderPanel("Elige la carpeta para buildear", "", "Build");
+            string path = string.IsNullOrEmpty(_path) ? EditorUtility.SaveFolderPanel("Elige la carpeta para buildear", "", "Build") : _path;
 
             int numLevels = EditorSceneManager.sceneCountInBuildSettings;
             string[] levels = new string[numLevels];
@@ -329,16 +329,16 @@ namespace UnityGameTemplate.Debug
 
             string name = PlayerSettings.productName;
 
-            if (!Directory.Exists(Path.GetFullPath(buildPath + name + "_Data")))
+            if (!Directory.Exists(Path.GetFullPath(buildPath +"/"+ name + "_Data")))
             {
                 UnityEngine.Debug.LogWarning("The game build doesn't exist. The game will be built before creating the installer.");
                 BuildGame();
             }
 
-            if (File.Exists(Path.GetFullPath(buildPath + name + ".exe")))
+            if (File.Exists(Path.GetFullPath(buildPath + "/" + name + ".exe")))
             {
                 UnityEngine.Debug.Log("Moving " + name + ".exe");
-                FileUtil.ReplaceFile(buildPath + name + ".exe", System.IO.Directory.GetParent(buildPath) + "/" + name + ".exe");
+                FileUtil.ReplaceFile(buildPath + "/" + name + ".exe", System.IO.Directory.GetParent(buildPath) + "/" + name + ".exe");
             }
 
             string batFile = "Executable/install.bat";
