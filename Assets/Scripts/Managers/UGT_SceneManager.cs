@@ -34,11 +34,15 @@ namespace UnityGameTemplate
         /// Load Animator
         /// </summary>
         [SerializeField] Animator m_loadingAnimator;
+        /// <summary>
+        /// List of scenes where the game can be saved
+        /// </summary>
+        [SerializeField] List<int> m_canSaveScenes;
 
         // Use this for initialization
         void Start()
         {
-
+            StartAllListeners();
         }
 
         /// <summary>
@@ -53,14 +57,16 @@ namespace UnityGameTemplate
         /// </summary>
         private void StartAllListeners()
         {
-
+            UGT_EventManager.StartListening<int>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneWithIndex);
+            UGT_EventManager.StartListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneAndEvent);
         }
         /// <summary>
         /// Stop Listening to events
         /// </summary>
         private void StopAllListeners()
         {
-            //
+            UGT_EventManager.StopListening<int>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneWithIndex);
+            UGT_EventManager.StopListening<int, string>(UGT_EventSetup.Scene.LOAD_SCENE, LoadSceneAndEvent);
         }
 
         private void _HidePanel()
@@ -119,9 +125,27 @@ namespace UnityGameTemplate
             }
         }
 
+        public void LoadSceneWithIndex(int _index)
+        {
+            LoadSceneAsync(_index);
+        }
+
+        public void LoadSceneAndEvent(int _index, string _eventName)
+        {
+            LoadSceneAsync(_index, 1f, _eventName);
+        }
+
         public static void LoadScene(int _sceneIndex, float _delayAfterLoading = 1f, string _eventName = "")
         {
             Instance.LoadSceneAsync(_sceneIndex, _delayAfterLoading, _eventName);
+        }
+
+        public bool CanSave()
+        {
+            if (m_canSaveScenes == null)
+                return false;
+
+            return m_canSaveScenes.Contains(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

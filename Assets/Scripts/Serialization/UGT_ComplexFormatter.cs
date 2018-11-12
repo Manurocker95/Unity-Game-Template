@@ -11,7 +11,7 @@ using System.Collections;
 using System;
 using FullSerializer;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.IO; 
+using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 using System.Runtime.Serialization;
@@ -242,7 +242,7 @@ namespace UnityGameTemplate.Serialization
             }
             catch (System.Exception e)
             {
-                Debug.LogError("Failed writing to path: " + path + "\n" + e.ToString());               
+                Debug.LogError("Failed writing to path: " + path + "\n" + e.ToString());
             }
 
         }
@@ -345,7 +345,18 @@ namespace UnityGameTemplate.Serialization
 
         }
 
+        /// Loads the Json from a file.
+        /// opens, reads and closes file
+        /// </summary>
+        /// <returns>The JSON from file.</returns>
+        /// <param name="path">Path.</param>
+        public static T LoadObjectFromJSONFile<T>(string path)
+        {
 
+            string jsonString = File.ReadAllText(path); // opens, reads and closes file
+            return DeserializeFromJSON<T>(jsonString);
+
+        }
         #region DES ENCRYPTION
 
         public static void SaveObjectToEncryptedBinaryFile<T>(T myObjectToSave, string path, string key = EncryptionSetup.PRIVATE_KEY)
@@ -423,7 +434,7 @@ namespace UnityGameTemplate.Serialization
 
                 stream.Close();
             }
-            catch (UnauthorizedAccessException) 
+            catch (UnauthorizedAccessException)
             {
                 Debug.LogError("UnauthorizedAccessException");
             }
@@ -577,7 +588,7 @@ namespace UnityGameTemplate.Serialization
 
             return "";
         }
-        
+
         #endregion
 
 
@@ -619,7 +630,7 @@ namespace UnityGameTemplate.Serialization
             return null;
         }
     }
-   
+
 
     public static class EncryptionSetup
     {

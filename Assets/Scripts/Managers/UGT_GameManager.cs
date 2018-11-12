@@ -1,14 +1,15 @@
 ﻿/*===============================================================*
  *                                                               *
  *       Script made by Manuel Rodríguez Matesanz                *
- *                 and Micah Paul Davis                          *
  *          Free to use if credits are given                     *
  *                                                               *
  *===============================================================*/
 
+using UnityGameTemplate.Localization;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UnityGameTemplate.Game
 {
@@ -18,18 +19,47 @@ namespace UnityGameTemplate.Game
     /// </summary>
     public class UGT_GameManager : UGT_SingletonMonobehaviour<UGT_GameManager>
     {
+        /// <summary>
+        /// Player Reference - Variable Assigned from the player itself :D
+        /// </summary>
+        public UGT_Player Player;
 
         // Use this for initialization
         void Start()
         {
-
+            StartAllListeners();
         }
 
-        // Update is called once per frame
-        void Update()
+        void StartAllListeners()
         {
-            if (UGT_InputManager.IsConfirmInputPressedDown())
-                Debug.Log("CONFIRM BUTTON");
+            UGT_EventManager.StartListening(UGT_EventSetup.Menu.EXIT, ExitGame);
+            UGT_EventManager.StartListening(UGT_EventSetup.Menu.OPEN_WEB, OpenWeb);
+        }
+
+        void StopAllListeners()
+        {
+            UGT_EventManager.StopListening(UGT_EventSetup.Menu.EXIT, ExitGame);
+            UGT_EventManager.StartListening(UGT_EventSetup.Menu.OPEN_WEB, OpenWeb);
+        }
+
+        private void OnDestroy()
+        {
+            StopAllListeners();
+        }
+        /// <summary>
+        /// Open an URL
+        /// </summary>
+        void OpenWeb()
+        {
+            Application.OpenURL(UGT_GameSetup.General.WEB_URL);
+        }
+        /// <summary>
+        /// Exit the game
+        /// </summary>
+        void ExitGame()
+        {
+            Debug.Log("Exit Game");
+            Application.Quit();
         }
     }
 

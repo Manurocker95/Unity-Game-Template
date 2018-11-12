@@ -12,16 +12,15 @@ using UnityEngine;
 namespace UnityGameTemplate
 {
     /// <summary>
-    /// Script just set to change from initializer scene to the first scene
-    /// Should be the menu scene
+    /// An example of character stats
     /// </summary>
-    public class UGT_Initializer : MonoBehaviour
+    [System.Serializable]
+    public class UGT_Stats
     {
-        // Use this for initialization
-        void Start()
-        {
-            UGT_SceneManager.LoadScene(1);
-        }
+        public int Attack = 1;
+        public int Defense = 1;
+        public int SpecialAttack = 1;
+        public int SpecialDefense = 1;
+        public int Speed = 1;
     }
 }
-

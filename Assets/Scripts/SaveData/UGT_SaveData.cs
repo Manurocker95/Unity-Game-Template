@@ -1,21 +1,32 @@
-﻿using System.Collections;
+﻿/*===============================================================*
+ *                                                               *
+ *       Script made by Manuel Rodríguez Matesanz                *
+ *          Free to use if credits are given                     *
+ *                                                               *
+ *===============================================================*/
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityGameTemplate.Inventory;
 
 namespace UnityGameTemplate.Save
 {
+    /// <summary>
+    /// Serialized game data.Loaded when needed
+    /// </summary>
     public class UGT_SaveData
     {
-        /// <summary>
-        /// Just a test. You can save more stuff xd
-        /// </summary>
-        public int lives = 3;
+        public UGT_PlayerData m_playerData;
+        public List<UGT_InventoryItem> m_inventoryData;
+
         /// <summary>
         /// Constructor
         /// </summary>
         public UGT_SaveData()
         {
-            lives = 3;
+            m_playerData = new UGT_PlayerData();
+            m_inventoryData = new List<UGT_InventoryItem>();
         }
     }
 

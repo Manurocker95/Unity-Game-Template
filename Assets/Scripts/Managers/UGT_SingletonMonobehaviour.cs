@@ -1,4 +1,12 @@
-﻿using UnityEngine;
+﻿/*===============================================================*
+ *                                                               *
+ *       Script made by Manuel Rodríguez Matesanz                *
+ *            Using UNITY Examples as base                       *
+ *          Free to use if credits are given                     *
+ *                                                               *
+ *===============================================================*/
+
+using UnityEngine;
 
 namespace UnityGameTemplate
 {
@@ -58,7 +66,7 @@ namespace UnityGameTemplate
                         m_instance = (MonoBehaviour)inst;
                     }
 
-                    if (((UGT_SingletonMonobehaviour<T>)m_instance).m_destroyOnLoad)
+                    if (!((UGT_SingletonMonobehaviour<T>)m_instance).m_destroyOnLoad)
                         Object.DontDestroyOnLoad(m_instance.gameObject);
                 }
 
@@ -83,7 +91,7 @@ namespace UnityGameTemplate
             {
                 m_instance = this;
 
-                if (((UGT_SingletonMonobehaviour<T>)m_instance).m_destroyOnLoad)
+                if (!((UGT_SingletonMonobehaviour<T>)m_instance).m_destroyOnLoad)
                     Object.DontDestroyOnLoad(m_instance.gameObject);
             }
             else
