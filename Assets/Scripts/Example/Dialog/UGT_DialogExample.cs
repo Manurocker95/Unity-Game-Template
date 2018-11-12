@@ -18,5 +18,10 @@ namespace UnityGameTemplate.Example
         {
             base.Update();
         }
+
+        public void ShowTestDialog()
+        {
+            UGT_DialogManager.ShowDialog("TestDialog");
+        }
     }
 }

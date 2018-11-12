@@ -25,7 +25,7 @@ namespace UnityGameTemplate.Example
         protected virtual void Update()
         {
             /// Other Input check example
-            if (UGT_InputManager.IsKeyCodePressed(KeyCode.Escape))
+            if (UGT_InputManager.IsKeyCodePressedDown(KeyCode.Escape))
                 BackToMenu();
 
         }
