@@ -13,6 +13,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Diagnostics;
 using UnityGameTemplate.Serialization;
+using UnityEditor.SceneManagement;
 
 namespace UnityGameTemplate.Debug
 {
@@ -173,13 +174,13 @@ namespace UnityGameTemplate.Debug
                     GUILayout.BeginHorizontal();
                     if (GUILayout.Button("Build .exe"))
                     {
-                        UnityEngine.Debug.Log("Building .exe for Color Picker Gun");
+                        UnityEngine.Debug.Log("Building .exe for Unity Game Template");
                         BuildGame();
                     }
 
                     if (GUILayout.Button("Build And run "))
                     {
-                        UnityEngine.Debug.Log("Building .exe for Color Picker Gun and running");
+                        UnityEngine.Debug.Log("Building .exe for Unity Game Template and running");
                         BuildGame(true);
                     }
                     GUILayout.EndHorizontal();
@@ -192,13 +193,13 @@ namespace UnityGameTemplate.Debug
                     GUILayout.BeginHorizontal();
                     if (GUILayout.Button("Create installer"))
                     {
-                        UnityEngine.Debug.Log("Creating installer for Color Picker Gun");
+                        UnityEngine.Debug.Log("Creating installer for  Unity Game Template");
                         CreateInstaller();
                     }
 
                     if (GUILayout.Button("Build and Installer "))
                     {
-                        UnityEngine.Debug.Log("Building .exe for Color Picker Gun and creating installer");
+                        UnityEngine.Debug.Log("Building .exe for  Unity Game Template and creating installer");
                         BuildAndCreateInstaller();
                     }
                     GUILayout.EndHorizontal();
@@ -290,22 +291,19 @@ namespace UnityGameTemplate.Debug
 
         #region BUILD AND INSTALLER
 
-        private void BuildGame(bool runIt = false)
+        private string BuildGame(bool runIt = false)
         {
             UnityEngine.Debug.ClearDeveloperConsole();
 
             // Get filename.
             string path = EditorUtility.SaveFolderPanel("Elige la carpeta para buildear", "", "Build");
 
-            string extension = ".unity";
-            string scenePath = "Assets/Scenes/";
-
-            int numLevels = SceneManager.sceneCount;
+            int numLevels = EditorSceneManager.sceneCountInBuildSettings;
             string[] levels = new string[numLevels];
-
+           
             for (int i = 0; i < numLevels; i++)
             {
-                levels[i] = scenePath + SceneManager.GetSceneByBuildIndex(i).name + extension;
+                levels[i] = EditorBuildSettings.scenes[i].path;
             }
 
             string name = PlayerSettings.productName;
@@ -320,6 +318,8 @@ namespace UnityGameTemplate.Debug
                 proc.StartInfo.FileName = Path.GetFullPath(path + name + ".exe");
                 proc.Start();
             }
+
+            return path;
         }
         // Remember to change the script install.bat in "Executable" to build from here with INNO Setup
         private void CreateInstaller(string buildPath = "")
@@ -365,25 +365,7 @@ namespace UnityGameTemplate.Debug
         private void BuildAndCreateInstaller()
         {
             // Get filename.
-            string path = EditorUtility.SaveFolderPanel("Choose build folder", "", "Build");
-
-            string extension = ".unity";
-            string scenePath = "Assets/Scenes/";
-
-            int numLevels = SceneManager.sceneCount;
-            string[] levels = new string[numLevels];
-
-            for (int i = 0; i < numLevels; i++)
-            {
-                levels[i] = scenePath + SceneManager.GetSceneByBuildIndex(i).name + extension;
-            }
-
-            string name = PlayerSettings.productName;
-
-            // Build player.
-            BuildPipeline.BuildPlayer(levels, path + "/" + name + ".exe", BuildTarget.StandaloneWindows, BuildOptions.None);
-
-
+            string path = BuildGame();
             CreateInstaller(path);
         }
 
